@@ -98,7 +98,7 @@ func DeleteUser(rw http.ResponseWriter, r *http.Request, p httprouter.Params) {
 }
 
 func UpdateUser(rw http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	//	получаем id из строки запроса
+	// получааем данные из строки запроса
 	userId, err := strconv.Atoi(p.ByName("userId"))
 	if err != nil {
 		http.Error(rw, fmt.Sprintf("httprouter error: %s", err.Error()), 400)
