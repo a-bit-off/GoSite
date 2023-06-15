@@ -98,14 +98,14 @@ func DeleteUser(rw http.ResponseWriter, r *http.Request, p httprouter.Params) {
 }
 
 func UpdateUser(rw http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	//	получаем id из строки запроса
+	// получааем данные из строки запроса
 	userId, err := strconv.Atoi(p.ByName("userId"))
-	userName := r.FormValue("name")
-	userSurname := r.FormValue("surname")
 	if err != nil {
 		http.Error(rw, err.Error(), 400)
 		return
 	}
+	userName := r.FormValue("name")
+	userSurname := r.FormValue("surname")
 
 	// получаем user по id
 	user, err := model.GetUserById(userId)
